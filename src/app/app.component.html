@@ -1,3 +1,10 @@
-<app-toolbar color="primary">Mytrainingsdata</app-toolbar>
-<app-footer></app-footer>
-<router-outlet></router-outlet>
+
+  <app-toolbar color="primary">
+    <a routerLink="/dashboard">Dashboard</a>
+    <a routerLink="/calendar">Calendar</a>
+  </app-toolbar>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+  <app-footer></app-footer>
+
