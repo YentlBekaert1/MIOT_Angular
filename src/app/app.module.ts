@@ -5,6 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { LayoutModule } from '@angular/cdk/layout';
+
 import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-design/mytrainingsdata-material-design.module';
 
 @NgModule({
@@ -15,7 +21,12 @@ import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MytrainingsdataMaterialDesignModule
+    MytrainingsdataMaterialDesignModule,
+    MatIconModule,
+    MatListModule,
+    MatButtonModule,
+    MatSidenavModule,
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent]
