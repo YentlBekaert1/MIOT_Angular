@@ -1,1 +1,2 @@
-<p>calendar works!</p>
+<full-calendar [options]="calendarOptionsList"  *ngIf="isHandset$ | async"></full-calendar>
+<full-calendar [options]="calendarOptionsFull"  *ngIf="!(isHandset$ | async)"></full-calendar>

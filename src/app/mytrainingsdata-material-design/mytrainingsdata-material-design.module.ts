@@ -15,6 +15,21 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 
+import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
+import timeGridPlugin from '@fullcalendar/timegrid';
+import listPlugin from '@fullcalendar/list';
+
+import { HttpClientModule } from '@angular/common/http';
+
+FullCalendarModule.registerPlugins([ // register FullCalendar plugins
+  dayGridPlugin,
+  timeGridPlugin,
+  listPlugin,
+  interactionPlugin
+]);
+
 @NgModule({
   declarations: [
     ToolbarComponent,
@@ -31,7 +46,9 @@ import { LayoutModule } from '@angular/cdk/layout';
     MatButtonModule,
     MatSidenavModule,
     MatListModule,
-    LayoutModule
+    LayoutModule,
+    FullCalendarModule, // register FullCalendar with you app
+    HttpClientModule,
   ],
   exports:[
     ToolbarComponent,

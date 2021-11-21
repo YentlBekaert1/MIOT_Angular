@@ -13,6 +13,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 
 import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-design/mytrainingsdata-material-design.module';
 
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -26,7 +28,8 @@ import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-
     MatListModule,
     MatButtonModule,
     MatSidenavModule,
-    LayoutModule
+    LayoutModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]
