@@ -8,17 +8,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private http: HttpClient) {
-    this.fetch();
+  constructor() {
+
   }
 
   fetch() {
-    
+
   }
 
   ngOnInit(): void {
   }
 
-  
+
 }
 

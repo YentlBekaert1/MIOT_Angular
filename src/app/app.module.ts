@@ -15,9 +15,10 @@ import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-
 
 
 
+
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
@@ -29,7 +30,7 @@ import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-
     MatButtonModule,
     MatSidenavModule,
     LayoutModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]
