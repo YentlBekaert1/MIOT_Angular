@@ -5,3 +5,11 @@ a{
   color: white;
   text-decoration: underline none;
 }
+mat-toolbar{
+  background: black;
+  background: -moz-linear-gradient(0deg, #5e60ce 0%, #6930c3 50%, #7400b8 100%);
+  background: -webkit-linear-gradient(0deg, #5e60ce 0%, #6930c3 50%, #7400b8 100%);
+  background: linear-gradient(0deg, #5e60ce 0%, #6930c3 50%, #7400b8 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#ffc900",GradientType=1);
+  box-shadow: 0 2px 22px 0 rgb(0 0 0 / 20%), 0 2px 30px 0 rgb(0 0 0 / 35%);
+}

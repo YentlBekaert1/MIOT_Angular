@@ -1,16 +1,12 @@
-$font-color: white;
-$border-color:white;
+$font-color: black;
+$border-color: black;
 
 mat-sidenav{
     width: 260px;
-    background: black;
-    background: -moz-linear-gradient(0deg, #5e60ce 0%, #6930c3 50%, #7400b8 100%);
-    background: -webkit-linear-gradient(0deg, #5e60ce 0%, #6930c3 50%, #7400b8 100%);
-    background: linear-gradient(0deg, #5e60ce 0%, #6930c3 50%, #7400b8 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#000000",endColorstr="#ffc900",GradientType=1);
     box-shadow: 0 2px 22px 0 rgb(0 0 0 / 20%), 0 2px 30px 0 rgb(0 0 0 / 35%);
     transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
     text-align: center;
+   
     img{
       display: block;
       margin-left: auto;
@@ -18,11 +14,12 @@ mat-sidenav{
       width: 50%;
     }
     h1{
-      color: white;
+      color: $font-color;
       font-weight: bold;
     }
     mat-nav-list{
       text-align: center;
+      z-index: 1;
       a{
         margin: 10px 0;
         border-radius: 30px;
@@ -34,22 +31,14 @@ mat-sidenav{
         }
 
         mat-icon{
-
           margin-right: 12px;
-          color: hsla(0,0%,100%,.5);
+          color: $font-color;
 
         }
 
         &:hover{
-            background-color: rgba(255,255,255,0.2);
+            background-color: rgba(0,0,0,0.2);
             transition: all .3s cubic-bezier(.685,.0473,.346,1);
-        }
-        &.active{
-            background-color: rgba(255,255,255,0.8);
-            color:#7400b8;
-            i{
-                color:#7400b8;
-            }
         }
       }
     }
