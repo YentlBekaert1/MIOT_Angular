@@ -1,24 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 
-export interface PeriodicElement {
+export interface Food {
   name: string;
   position: number;
   weight: number;
-  symbol: string;
+  calories: number;
+  sugar: number;
+  fat: number;
+  protiens: number;
+  sel: number;
 }
 
-const ELEMENT_DATA: PeriodicElement[] = [
-  {position: 1, name: 'Hydrogen', weight: 1.0079, symbol: 'H'},
-  {position: 2, name: 'Helium', weight: 4.0026, symbol: 'He'},
-  {position: 3, name: 'Lithium', weight: 6.941, symbol: 'Li'},
-  {position: 4, name: 'Beryllium', weight: 9.0122, symbol: 'Be'},
-  {position: 5, name: 'Boron', weight: 10.811, symbol: 'B'},
-  {position: 6, name: 'Carbon', weight: 12.0107, symbol: 'C'},
-  {position: 7, name: 'Nitrogen', weight: 14.0067, symbol: 'N'},
-  {position: 8, name: 'Oxygen', weight: 15.9994, symbol: 'O'},
-  {position: 9, name: 'Fluorine', weight: 18.9984, symbol: 'F'},
-  {position: 10, name: 'Neon', weight: 20.1797, symbol: 'Ne'},
+const ELEMENT_DATA: Food[] = [
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
 ];
 
 @Component({
@@ -27,7 +29,7 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./food-corner.component.scss']
 })
 export class FoodCornerComponent implements OnInit {
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
+  displayedColumns: string[] = ['position', 'name', 'weight', 'calories', 'sugar', 'fat', 'protiens', 'sel'];
   dataSource = ELEMENT_DATA;
 
   // Create an instance of FormControl using the FormBuilder
@@ -39,10 +41,12 @@ export class FoodCornerComponent implements OnInit {
   constructor(private fb: FormBuilder) {
     this.foodFormGroup = this.fb.group({
       name:"",
-      email:"",
-      details:"",
-      powers: "",
-      country: "",
+      weight:"",
+      calories:"",
+      sugar: "",
+      fat: "",
+      proteins: "",
+      sel: "",
       dob: new Date('11/15/2021'),
       rating: 2,
       cape: false,
