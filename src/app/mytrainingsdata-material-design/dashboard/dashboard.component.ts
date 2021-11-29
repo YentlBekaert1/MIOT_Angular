@@ -9,13 +9,7 @@ import { HttpClient } from '@angular/common/http';
 export class DashboardComponent implements OnInit {
 
   constructor() {
-
   }
-
-  fetch() {
-
-  }
-
   ngOnInit(): void {
   }
 

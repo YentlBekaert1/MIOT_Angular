@@ -45,7 +45,7 @@ export class FoodCornerComponent implements OnInit {
       calories:"",
       sugar: "",
       fat: "",
-      proteins: "",
+      protiens: "",
       sel: "",
       dob: new Date('11/15/2021'),
       rating: 2,

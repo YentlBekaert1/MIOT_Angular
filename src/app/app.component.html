@@ -1,4 +1,4 @@
-  
+
   <app-toolbar>
     <button
     type="button"
@@ -19,11 +19,11 @@
       [opened]="!(isHandset$ | async)"
     >
       <mat-nav-list>
-        <a mat-list-item routerLink="/dashboard"><mat-icon>dashboard</mat-icon> Dashboard</a>
-        <a mat-list-item routerLink="/calendar"><mat-icon>calendar_today</mat-icon> Calendar</a>
-        <a mat-list-item routerLink="/foodcorner"><mat-icon>local_dining</mat-icon> Food corner</a>
-        <a mat-list-item routerLink="/weather"><mat-icon>wb_sunny</mat-icon> Weather</a>
-        <a mat-list-item routerLink="/performances"><mat-icon>grade</mat-icon> Performances</a>
+        <a mat-list-item routerLink="/dashboard"  routerLinkActive="active-link"><mat-icon>dashboard</mat-icon> Dashboard</a>
+        <a mat-list-item routerLink="/calendar" routerLinkActive="active-link"><mat-icon>calendar_today</mat-icon> Calendar</a>
+        <a mat-list-item routerLink="/foodcorner" routerLinkActive="active-link"><mat-icon>local_dining</mat-icon> Food corner</a>
+        <a mat-list-item routerLink="/weather" routerLinkActive="active-link"><mat-icon>wb_sunny</mat-icon> Weather</a>
+        <a mat-list-item routerLink="/performances" routerLinkActive="active-link"><mat-icon>grade</mat-icon> Performances</a>
       </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>

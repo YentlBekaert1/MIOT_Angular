@@ -24,8 +24,6 @@ import { FoodCornerComponent } from './food-corner/food-corner.component';
 import { PerformancesComponent } from './performances/performances.component';
 import { WeatherComponent } from './weather/weather.component';
 
-
-
 import { FullCalendarModule } from '@fullcalendar/angular'; // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
@@ -71,7 +69,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
-
   ],
   exports:[
     ToolbarComponent,
