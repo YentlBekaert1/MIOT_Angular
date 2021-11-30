@@ -15,6 +15,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { FooterComponent } from './footer/footer.component';
@@ -29,9 +30,6 @@ import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
 import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
-
-import { HttpClientModule } from '@angular/common/http';
-
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -62,13 +60,13 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatTabsModule,
     LayoutModule,
     FullCalendarModule, // register FullCalendar with you app
-    HttpClientModule,
     MatTableModule,
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
     MatInputModule,
     MatGridListModule,
+    MatProgressSpinnerModule,
   ],
   exports:[
     ToolbarComponent,

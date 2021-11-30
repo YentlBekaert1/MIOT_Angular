@@ -1,11 +1,47 @@
-<div>
-  <mat-grid-list [cols]="4" rowHeight="4:1" >
-    <mat-grid-tile [colspan] = "1" [rowspan] ="1"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan] = "1" [rowspan] ="1"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan] = "1" [rowspan] ="1"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan] = "1" [rowspan] ="1"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
+<div classs ="page">
+  <mat-grid-list  #grid [cols]="cols" rowHeight="4:1" gutterSize="20px" >
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
 
-    <mat-grid-tile [colspan] = "2" [rowspan] ="4"><mat-card class="example-card-large">Simple card</mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan] = "2" [rowspan] ="4"><mat-card class="example-card-large">Simple card</mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "2" [rowspan] ="6">
+      <mat-card class="example-card-large">
+        <mat-list role="list">
+          <mat-list-item role="listitem">Item 1</mat-list-item>
+          <mat-list-item role="listitem">Item 2</mat-list-item>
+          <mat-list-item role="listitem">Item 3</mat-list-item>
+          <mat-list-item role="listitem">Item 4</mat-list-item>
+          <mat-list-item role="listitem">Item 5</mat-list-item>
+          <mat-list-item role="listitem">Item 6</mat-list-item>
+          <mat-list-item role="listitem">Item 7</mat-list-item>
+          <mat-list-item role="listitem">Item 8</mat-list-item>
+          <mat-list-item role="listitem">Item 9</mat-list-item>
+          <mat-list-item role="listitem">Item 10</mat-list-item>
+        </mat-list>
+      </mat-card>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan] = "2" [rowspan] ="6">
+      <mat-card class="example-card-large">
+  <div class="spinner-container">
+      <mat-progress-spinner
+      class="spinner"
+      [color]="color"
+      [mode]="mode"
+      [value]="value"
+      [diameter] = 250>
+      </mat-progress-spinner>
+      
+    </div>
+  <div class="spinner-container">
+      <mat-progress-spinner
+      class="spinner"
+      [color]="color"
+      [mode]="mode"
+      [value]="value"
+      [diameter] = 250>
+    </mat-progress-spinner>
+    </div>
+    </mat-card></mat-grid-tile>
   </mat-grid-list>
 </div>

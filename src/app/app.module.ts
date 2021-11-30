@@ -13,7 +13,7 @@ import { LayoutModule } from '@angular/cdk/layout';
 
 import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-design/mytrainingsdata-material-design.module';
 
-
+import { HttpClientModule } from '@angular/common/http';
 
 
 @NgModule({
@@ -30,9 +30,13 @@ import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-
     MatButtonModule,
     MatSidenavModule,
     LayoutModule,
+    HttpClientModule,
 
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[
+      HttpClientModule
+  ]
 })
 export class AppModule { }
