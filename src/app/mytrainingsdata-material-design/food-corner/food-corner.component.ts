@@ -21,6 +21,22 @@ const ELEMENT_DATA: Food[] = [
   {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
   {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
   {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+  {position: 1, name: 'test', weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001},
+
 ];
 
 @Component({

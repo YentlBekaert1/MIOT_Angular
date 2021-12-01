@@ -6,9 +6,15 @@ table {
   width: 100%;
 }
 div.tab-page{
-  padding: 2% 5% 5% 5%;
+  padding: 2% ;
 }
 
 mat-form-field.mat-form-field{
   width: 100%;
+}
+.table-container {
+  height: 50vh;
+  max-width: 100%;
+  overflow: auto;
+  margin-bottom: 5%;
 }

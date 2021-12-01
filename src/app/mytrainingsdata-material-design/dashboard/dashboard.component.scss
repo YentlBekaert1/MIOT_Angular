@@ -1,28 +1,56 @@
 div.page{
-  padding-top: 5%;
+  padding-top: 2%;
   background-color: #ebecf1;
   min-height: 100vh;
 }
 
 .example-card-small {
   width: 80%;
-  max-width: 80%;
   height: 80%;
 
 }
 .example-card-large {
-width: 90%;
-max-width: 100%;
-height: 80%;
-padding: 5%;
-text-align:center;
+  width: 90%;
+  height: 80%;
+  .piechartcontainer{
+    padding-top: 2%;
+    margin: auto;
+    width: 100%;
+    height: 80%;
+
+  }
+  .table-container {
+    height: 400px;
+    max-width: 100%;
+    overflow: auto;
+  }
+  table {
+    width: 100%;
+  }
 }
-.spinner{
-  margin:auto;
+
+/* Column Widths */
+.mat-column-number,
+.mat-column-state {
+  max-width: 64px;
 }
-.spinner-container{
-  display: inline-block;
-  text-align: center;
-  height: 100%;
-  width: 50%;
+
+.mat-column-created {
+  max-width: 124px;
+}
+
+.mat-row .mat-cell {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+
+.demo-row-is-clicked {
+  font-weight: bold;
+}
+.mat-table {
+  overflow-y: scroll;
 }

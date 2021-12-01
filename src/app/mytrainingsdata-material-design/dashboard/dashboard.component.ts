@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {ProgressSpinnerMode} from '@angular/material/progress-spinner';
-import {ThemePalette} from '@angular/material/core';
 
 import {
   BreakpointObserver,
@@ -8,21 +6,44 @@ import {
   BreakpointState
 } from '@angular/cdk/layout';
 
+
+export interface activities {
+  name: string;
+  date: string;
+  time: string;
+  distance: string;
+}
+
+const ACTIVITIS_DATA: activities[] = [
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
+];
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
 
-  color: ThemePalette = 'primary';
-  mode: ProgressSpinnerMode = 'determinate';
-  value = 80;
-  diameter: number = 80;
+  //for table
+  displayedColumns: string[] = ['date', 'name', 'time', 'distance'];
+  dataSource = ACTIVITIS_DATA;
+  clickedRows = new Set<activities>();
 
-
+  //for grid layout
   cols? : number =4;
-
+  //responsiveness gridlayout
   gridByBreakpoint = {
     xl: 4,
     lg: 4,
@@ -31,28 +52,41 @@ export class DashboardComponent implements OnInit {
     xs: 2
   }
 
-   data: any;
+  //pichart properties
+   pieChartData: any;
+   pieChartOptions: any;
 
    constructor(private breakpointObserver: BreakpointObserver) {
-      this.data = {
-            labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      this.pieChartData = {
+            labels: ['Bike', 'run', 'swim'],
             datasets: [
                 {
                     label: 'First Dataset',
-                    data: [65, 59, 80, 81, 56, 55, 40]
+                    data: [80, 5, 5,],
+                    backgroundColor: [
+                      '#EC407A',
+                      '#AB47BC',
+                      '#42A5F5']
                 },
-                {
-                    label: 'Second Dataset',
-                    data: [28, 48, 40, 19, 86, 27, 90]
-                }
             ]
         }
-    
+        this.pieChartOptions = {
+          title: {
+              display: true,
+              text: 'My Title',
+              fontSize: 16
+          },
+          legend: {
+              position: 'bottom'
+          }
+      };
+
   }
 
 
   ngOnInit() {
 
+  //for responsiveness gridlayout
   this.breakpointObserver.observe([
       Breakpoints.XSmall,
       Breakpoints.Small,
