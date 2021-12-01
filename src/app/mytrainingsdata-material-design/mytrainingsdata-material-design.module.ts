@@ -38,6 +38,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   interactionPlugin
 ]);
 
+import {ChartModule} from 'primeng/chart';
+
 @NgModule({
   declarations: [
     ToolbarComponent,
@@ -67,6 +69,7 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     MatInputModule,
     MatGridListModule,
     MatProgressSpinnerModule,
+    ChartModule,
   ],
   exports:[
     ToolbarComponent,
@@ -77,6 +80,6 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     PerformancesComponent,
     WeatherComponent,
     MatToolbarModule
-  ]
+  ],
 })
 export class MytrainingsdataMaterialDesignModule { }
