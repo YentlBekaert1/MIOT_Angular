@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-
+import {Chart, registerables} from 'chart.js'
 
 import {
   BreakpointObserver,
@@ -35,7 +35,9 @@ const ACTIVITIS_DATA: activities[] = [
   styleUrls: ['./dashboard.component.scss']
 })
 
+
 export class DashboardComponent implements OnInit {
+  chart: any = [];
 
   //for table
   displayedColumns: string[] = ['date', 'name', 'time', 'distance'];
@@ -53,43 +55,14 @@ export class DashboardComponent implements OnInit {
     xs: 2
   }
 
-  //pichart properties
-   pieChartData: any;
-   pieChartOptions: any;
-
-
-
-   constructor(private breakpointObserver: BreakpointObserver) {
-      this.pieChartData = {
-            labels: ['Bike', 'Run', 'Swim', 'other'],
-            datasets: [
-                {
-                    label: 'First Dataset',
-                    data: [80, 15, 5, 2],
-                    backgroundColor: [
-                      '#7886cb',
-                      '#63b6f6',
-                      '#4db6ac',
-                      '#81c784',
-                    ]
-                },
-            ]
-        }
-        this.pieChartOptions = {
-          title: {
-              display: true,
-              text: 'My Title',
-              fontSize: 16
-          },
-          legend: {
-              position: 'bottom'
-          }
-      };
-
+  constructor(private breakpointObserver: BreakpointObserver) {
+    Chart.register(...registerables);
   }
 
 
-ngOnInit() {
+
+  ngOnInit() {
+
   //for responsiveness gridlayout
   this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -120,11 +93,57 @@ ngOnInit() {
         }
       }
     });
+    //chart
+     this.chart = new Chart("canvas", {
+      type: 'bar',
+      data: {
+          labels: ['Monday', 'Teusday', 'Wendsday', 'Thunderday', 'Friday', 'Saterday', 'Sunday'],
+          datasets: [{
+              label: 'Bike',
+              data: [12, 19, 0, 5, 12, 13, 0],
+              backgroundColor: [
+                  'rgba(92, 107, 192, 1)',
+              ],
+              order: 1
+          },
+          {
+            label: 'Run',
+            data: [0, 3, 0, 0, 0,0, 5],
+            backgroundColor: [
+                'rgba(66, 165, 245, 1)'
+            ],
+            order: 2
+        },
+        {
+          label: 'Swim',
+          data: [0, 0, 5, 0, 0, 0, 0],
+          backgroundColor: [
+              'rgba(38, 166, 153, 1)'
+          ],
+
+          order: 3
+        },
+        {
+          label: 'other',
+          data: [1, 0, 0, 1, 0, 1, 0],
+          backgroundColor: [
+              'rgba(101, 188, 105, 1)'
+          ],
+
+          order: 3
+        }
+        ]
+      },
+      options: {
+          scales: {
+              y: {
+                  beginAtZero: true
+
+              }
+          }
+      }
+  });
 
   }
-
-
-
-
 }
 
