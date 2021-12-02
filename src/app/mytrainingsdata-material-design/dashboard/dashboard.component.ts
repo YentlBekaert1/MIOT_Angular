@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
 
 import {
   BreakpointObserver,
@@ -56,17 +57,21 @@ export class DashboardComponent implements OnInit {
    pieChartData: any;
    pieChartOptions: any;
 
+
+
    constructor(private breakpointObserver: BreakpointObserver) {
       this.pieChartData = {
-            labels: ['Bike', 'run', 'swim'],
+            labels: ['Bike', 'Run', 'Swim', 'other'],
             datasets: [
                 {
                     label: 'First Dataset',
-                    data: [80, 5, 5,],
+                    data: [80, 15, 5, 2],
                     backgroundColor: [
-                      '#EC407A',
-                      '#AB47BC',
-                      '#42A5F5']
+                      '#7886cb',
+                      '#63b6f6',
+                      '#4db6ac',
+                      '#81c784',
+                    ]
                 },
             ]
         }
@@ -84,8 +89,7 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  ngOnInit() {
-
+ngOnInit() {
   //for responsiveness gridlayout
   this.breakpointObserver.observe([
       Breakpoints.XSmall,
@@ -118,6 +122,9 @@ export class DashboardComponent implements OnInit {
     });
 
   }
+
+
+
 
 }
 

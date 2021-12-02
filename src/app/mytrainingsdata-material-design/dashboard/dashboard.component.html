@@ -1,16 +1,53 @@
 <div class ="page">
+  <h2 class="pagetitle">Week Totals:</h2>
   <mat-grid-list  #grid [cols]="cols" rowHeight="4:1" gutterSize="20px" >
-    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
-    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">Simple card</mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">
+      <div class="col1 card1">
+        <mat-icon>access_time</mat-icon>
+      </div>
+      <div class="col2 card11">
+        <h1>12:30:45</h1>
+        <hr>
+        <h3>TIME</h3>
+      </div>
+    </mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">
+      <div class="col1 card2">
+        <mat-icon> terrain</mat-icon>
+      </div>
+      <div class="col2 card21">
+        <h1>256 KM</h1>
+        <hr>
+        <h3>Distance</h3>
+      </div>
+    </mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">
+      <div class="col1 card3">
+        <mat-icon>offline_bolt</mat-icon>
+      </div>
+      <div class="col2 card31">
+        <h1>625</h1>
+        <hr>
+        <h3>tss</h3>
+      </div>
+    </mat-card></mat-grid-tile>
+    <mat-grid-tile [colspan] = "1" [rowspan] ="2"><mat-card class="example-card-small">
+      <div class="col1 card4">
+        <mat-icon> bubble_chart</mat-icon>
+      </div>
+      <div class="col2 card41">
+        <h1>8238</h1>
+        <hr>
+        <h3>calories</h3>
+      </div>
+    </mat-card></mat-grid-tile>
 
     <mat-grid-tile [colspan] = "2" [rowspan] ="6">
 
       <mat-card class="example-card-large">
         <h2>THIS WEEKS ACTIVITIES</h2>
          <div class="piechartcontainer">
-          <p-chart type="pie" [data]="pieChartData"  [responsive]="true" [options]="pieChartOptions" width="100%" height="100%"></p-chart>
+        
          </div>
 
       </mat-card>
@@ -19,8 +56,8 @@
     <mat-grid-tile [colspan] = "2" [rowspan] ="6">
       <mat-card class="example-card-large">
         <h2>LAST ACTIVITIES</h2>
-        <div class="table-container ">
-          <table mat-table [dataSource]="dataSource" class="" >
+        <div class="table-container"  data-simplebar id="content" data-simplebar-auto-hide="true">
+          <table mat-table [dataSource]="dataSource" >
             <!-- Date Column -->
             <ng-container matColumnDef="date">
               <th mat-header-cell *matHeaderCellDef> Date </th>

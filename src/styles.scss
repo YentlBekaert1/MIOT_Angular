@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+@import '~simplebar/dist/simplebar.css';
 
 html, body { height: 100%;}
 body {
@@ -7,4 +8,10 @@ body {
   padding: 0;
   margin: 0;
   text-align: left;
+  width: 100vw;
+  height:100vh;
+  overflow: auto;
 }
+
+
+

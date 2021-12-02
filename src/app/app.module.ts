@@ -15,6 +15,7 @@ import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-
 
 import { HttpClientModule } from '@angular/common/http';
 
+import { SimplebarAngularModule } from 'simplebar-angular'; //custom scrollbar
 
 @NgModule({
   declarations: [
@@ -31,12 +32,14 @@ import { HttpClientModule } from '@angular/common/http';
     MatSidenavModule,
     LayoutModule,
     HttpClientModule,
+    SimplebarAngularModule,
 
   ],
   providers: [],
   bootstrap: [AppComponent],
   exports:[
-      HttpClientModule
+      HttpClientModule,
+      SimplebarAngularModule
   ]
 })
 export class AppModule { }
