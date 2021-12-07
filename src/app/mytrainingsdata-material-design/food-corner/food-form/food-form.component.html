@@ -1,0 +1,60 @@
+<form
+#foodForm="ngForm"
+[formGroup]="foodFormGroup"
+(submit)="submitHandler()"
+>
+<div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Name</mat-label>
+      <mat-hint>Give the product name</mat-hint>
+      <input type="text" name="name" formControlName="name" matInput />
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Weight (g)</mat-label>
+      <input type="number" name="weight" formControlName="weight" matInput />
+      <mat-hint>Give the weight in grams</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Calories (g)</mat-label>
+      <input type="number" name="calories" formControlName="calories" matInput />
+      <mat-hint>Give the calories in grams</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Sugar (g)</mat-label>
+      <input type="number" name="sugar" formControlName="sugar" matInput />
+      <mat-hint>Give the sugar in grams</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Fat (g)</mat-label>
+      <input type="number" name="fat" formControlName="fat" matInput />
+      <mat-hint>Give the fat in grams</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Protiens (g)</mat-label>
+      <input type="number" name="protiens" formControlName="protiens" matInput />
+      <mat-hint>Give the protiens in grams</mat-hint>
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Sel (g)</mat-label>
+      <input type="number" name="sel" formControlName="sel" matInput />
+      <mat-hint>Give the sel in grams</mat-hint>
+    </mat-form-field>
+  </div>
+
+  <div>
+    <button mat-stroked-button>Cancel</button>
+    <button mat-stroked-button>Save</button>
+  </div>
+</form>

@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { CalendarOptions, DateSelectArg ,EventClickArg, EventApi} from '@fullcalendar/angular'; // useful for typechecking
-import { INITIAL_EVENTS, createEventId } from '../utilities/event-utils';
+import { INITIAL_EVENTS, createEventId } from './event-utils';
 import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import {Events} from "./events"
 
 @Component({
   selector: 'app-calendar',
@@ -11,6 +12,19 @@ import { map } from "rxjs/operators";
   styleUrls: ['./calendar.component.scss']
 })
 export class CalendarComponent implements OnInit {
+  events: Events[] = [
+      {
+        id: "1",
+        title: 'Event 1',
+        start: '2021-12-07'
+      },
+      {
+        id: "2",
+        title: 'Event 2',
+        start: '2021-12-08'
+      }
+    ];
+
 
   constructor(private breakpointObserver: BreakpointObserver) { }
 
@@ -20,9 +34,9 @@ export class CalendarComponent implements OnInit {
   isHandset$: Observable<boolean> = this.breakpointObserver
   .observe(Breakpoints.Handset)
   .pipe(map((result) => result.matches));
-  
+
   calendarOptionsFull: CalendarOptions = {
-    initialEvents: INITIAL_EVENTS,
+    initialEvents: this.events,
     initialView: 'dayGridMonth',
     select: this.handleDateSelect.bind(this), // bind is important!
     eventClick: this.handleEventClick.bind(this),
@@ -30,7 +44,7 @@ export class CalendarComponent implements OnInit {
    
   };
   calendarOptionsList: CalendarOptions = {
-    initialEvents: INITIAL_EVENTS,
+    initialEvents: this.events,
     initialView: 'listWeek',
     select: this.handleDateSelect.bind(this), // bind is important!
     eventClick: this.handleEventClick.bind(this),

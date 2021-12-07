@@ -31,6 +31,10 @@ import interactionPlugin from '@fullcalendar/interaction'; // a plugin!
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
 
+import { FoodTableComponent } from './food-corner/food-table/food-table.component';
+import { FoodFilterPipe } from './food-corner/food-filter/food-filter.pipe';
+import { FoodFormComponent } from './food-corner/food-form/food-form.component';
+
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
   dayGridPlugin,
@@ -49,7 +53,10 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     CalendarComponent,
     FoodCornerComponent,
     PerformancesComponent,
-    WeatherComponent
+    WeatherComponent,
+    FoodTableComponent,
+    FoodFilterPipe,
+    FoodFormComponent
   ],
   imports: [
     CommonModule,

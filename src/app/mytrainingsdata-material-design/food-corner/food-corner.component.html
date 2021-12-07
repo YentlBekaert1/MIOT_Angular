@@ -3,125 +3,20 @@
     <mat-tab label="Overview">
       <div class="tab-page">
         <h1>List of products</h1>
-        <div class="table-container" data-simplebar id="content" data-simplebar-auto-hide="true">
-          <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
 
-            <!--- Note that these columns can be defined in any order.
-                  The actual rendered columns are set as a property on the row definition" -->
-            <!-- Position Column -->
-            <ng-container matColumnDef="position">
-              <th mat-header-cell *matHeaderCellDef> No. </th>
-              <td mat-cell *matCellDef="let element"> {{element.position}} </td>
-            </ng-container>
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
-
-            <!-- Weight Column -->
-            <ng-container matColumnDef="weight">
-              <th mat-header-cell *matHeaderCellDef> Weight (g)</th>
-              <td mat-cell *matCellDef="let element"> {{element.weight}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="calories">
-              <th mat-header-cell *matHeaderCellDef> Calories (g)</th>
-              <td mat-cell *matCellDef="let element"> {{element.calories}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="sugar">
-              <th mat-header-cell *matHeaderCellDef> Sugar (g)</th>
-              <td mat-cell *matCellDef="let element"> {{element.sugar}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="fat">
-              <th mat-header-cell *matHeaderCellDef> Fat (g)</th>
-              <td mat-cell *matCellDef="let element"> {{element.fat}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="protiens">
-              <th mat-header-cell *matHeaderCellDef> Protiens (g)</th>
-              <td mat-cell *matCellDef="let element"> {{element.protiens}} </td>
-            </ng-container>
-
-            <ng-container matColumnDef="sel">
-              <th mat-header-cell *matHeaderCellDef> Sel (g)</th>
-              <td mat-cell *matCellDef="let element"> {{element.sel}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-          </table>
-        </div>
+        <mat-form-field appearance="standard">
+          <mat-label>Filter</mat-label>
+          <input (input)="updateFoodSearchTerm($event)" matInput>
+        </mat-form-field>
+       
+        <app-food-table [content]="foodData | foodFilter: foodSearchTerm" (detailClick)="goToFoodDetails($event)"></app-food-table>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat aliquam nulla accusamus explicabo, quas alias eligendi aliquid quam iusto earum autem error voluptatem, facilis vitae reiciendis eveniet culpa minus voluptatibus.</p>
       </div>
     </mat-tab>
     <mat-tab label="Add new">
       <div class="tab-page">
         <h1>Add new</h1>
-        <form
-        #foodForm="ngForm"
-        [formGroup]="foodFormGroup"
-        (submit)="submitHandler()"
-        >
-        <div class="example-container">
-            <mat-form-field appearance="outline">
-              <mat-label>Name</mat-label>
-              <mat-hint>Give the product name</mat-hint>
-              <input type="text" name="name" formControlName="name" matInput />
-            </mat-form-field>
-          </div>
-          <div class="example-container">
-            <mat-form-field appearance="outline">
-              <mat-label>Weight (g)</mat-label>
-              <input type="number" name="weight" formControlName="weight" matInput />
-              <mat-hint>Give the weight in grams</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="example-container">
-            <mat-form-field appearance="outline">
-              <mat-label>Calories (g)</mat-label>
-              <input type="number" name="calories" formControlName="calories" matInput />
-              <mat-hint>Give the calories in grams</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="example-container">
-            <mat-form-field appearance="outline">
-              <mat-label>Sugar (g)</mat-label>
-              <input type="number" name="sugar" formControlName="sugar" matInput />
-              <mat-hint>Give the sugar in grams</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="example-container">
-            <mat-form-field appearance="outline">
-              <mat-label>Fat (g)</mat-label>
-              <input type="number" name="fat" formControlName="fat" matInput />
-              <mat-hint>Give the fat in grams</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="example-container">
-            <mat-form-field appearance="outline">
-              <mat-label>Protiens (g)</mat-label>
-              <input type="number" name="protiens" formControlName="protiens" matInput />
-              <mat-hint>Give the protiens in grams</mat-hint>
-            </mat-form-field>
-          </div>
-          <div class="example-container">
-            <mat-form-field appearance="outline">
-              <mat-label>Sel (g)</mat-label>
-              <input type="number" name="sel" formControlName="sel" matInput />
-              <mat-hint>Give the sel in grams</mat-hint>
-            </mat-form-field>
-          </div>
-
-          <div>
-            <button mat-stroked-button>Cancel</button>
-            <button mat-stroked-button>Save</button>
-          </div>
-
-        </form>
+        <app-food-form></app-food-form>
     </div>
     </mat-tab>
   </mat-tab-group>
