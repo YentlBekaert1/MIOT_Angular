@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Food } from './food';
 import { FoodAPIService } from './food-api.service';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-food-corner',
@@ -10,25 +12,26 @@ import { FoodAPIService } from './food-api.service';
 
 export class FoodCornerComponent implements OnInit {
   foodSearchTerm = '';
-  foodData!: Food[];
+  foodData$: Observable<Food[]>;
 
-  /*constructor(private foodApi: FoodAPIService) {
-    this.foodData = this.foodApi.getAll();
-  }*/
+  constructor(private foodApi: FoodAPIService, private router: Router) {
+    this.foodData$ = this.foodApi.getAll();
+  }
 
- constructor(private foodApi: FoodAPIService) {
+ /*constructor(private foodApi: FoodAPIService) {
     this.foodApi
       .getAll()
       .subscribe(foodsFromApi => (this.foodData = foodsFromApi));
-  }
+  }*/
 
   ngOnInit(): void {
 
   }
 
-  goToFoodDetails(food: Food[]) {
+  goToFoodDetails(food: any) {
     console.log('Navigate to food details, soon ...');
-    console.table(food);
+    console.log(food.Id);
+     this.router.navigate(['/foodcornerdetails/'+ food.Id]);
   }
 
   //filter

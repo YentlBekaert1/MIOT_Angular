@@ -1,0 +1,16 @@
+<div>
+    <button (click)="goBack()">go back</button>
+    <ng-container *ngIf="food$ | async as food">
+        <h3>
+          {{ food.name }}
+        </h3>
+        <h4>ISBN - {{ food.Id }}</h4>
+        <section class="food-insights">
+          <p>
+            {{ food.brand }}
+            <i>{{ food.category }}</i>
+          </p>
+          <img [src]="food.img" [alt]="food.name" class="food-cover" />
+        </section>
+      </ng-container>
+</div>

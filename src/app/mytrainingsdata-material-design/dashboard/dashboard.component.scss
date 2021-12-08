@@ -116,7 +116,7 @@ div.page{
   cursor: pointer;
 }
 .mat-row:hover .mat-cell {
-  border-color: currentColor;
+  background-color: rgba(0,0,0, 0.1);;
 }
 
 .demo-row-is-clicked {

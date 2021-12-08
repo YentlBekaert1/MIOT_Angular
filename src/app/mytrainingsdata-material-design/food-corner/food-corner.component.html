@@ -9,7 +9,7 @@
           <input (input)="updateFoodSearchTerm($event)" matInput>
         </mat-form-field>
        
-        <app-food-table [content]="foodData | foodFilter: foodSearchTerm" (detailClick)="goToFoodDetails($event)"></app-food-table>
+        <app-food-table [content]="foodData$ | async | foodFilter: foodSearchTerm" (detailClick)="goToFoodDetails($event)"></app-food-table>
         <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Placeat aliquam nulla accusamus explicabo, quas alias eligendi aliquid quam iusto earum autem error voluptatem, facilis vitae reiciendis eveniet culpa minus voluptatibus.</p>
       </div>
     </mat-tab>

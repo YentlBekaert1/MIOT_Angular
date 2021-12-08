@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './mytrainingsdata-material-design/dashboard/dashboard.component';
 import { CalendarComponent } from './mytrainingsdata-material-design/calendar/calendar.component';
 import { FoodCornerComponent } from './mytrainingsdata-material-design/food-corner/food-corner.component';
+import { FoodDetailComponent } from './mytrainingsdata-material-design/food-corner/food-detail/food-detail.component';
 import { PerformancesComponent } from './mytrainingsdata-material-design/performances/performances.component';
 import { WeatherComponent } from './mytrainingsdata-material-design/weather/weather.component';
 
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
         path: "performances",
         component: PerformancesComponent
+  },
+  {
+    path: 'foodcornerdetails/:id',
+    component: FoodDetailComponent
   },
   {
       path: "**",

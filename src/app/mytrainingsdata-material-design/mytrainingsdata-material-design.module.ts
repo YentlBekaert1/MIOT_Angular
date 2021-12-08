@@ -34,6 +34,7 @@ import listPlugin from '@fullcalendar/list';
 import { FoodTableComponent } from './food-corner/food-table/food-table.component';
 import { FoodFilterPipe } from './food-corner/food-filter/food-filter.pipe';
 import { FoodFormComponent } from './food-corner/food-form/food-form.component';
+import { FoodDetailComponent } from './food-corner/food-detail/food-detail.component';
 
 
 FullCalendarModule.registerPlugins([ // register FullCalendar plugins
@@ -56,7 +57,8 @@ FullCalendarModule.registerPlugins([ // register FullCalendar plugins
     WeatherComponent,
     FoodTableComponent,
     FoodFilterPipe,
-    FoodFormComponent
+    FoodFormComponent,
+    FoodDetailComponent
   ],
   imports: [
     CommonModule,
