@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import { FormBuilder} from '@angular/forms';
 import { Food } from '../food';
 import { FoodAPIService } from '../food-api.service';
 
@@ -12,25 +12,7 @@ import { FoodAPIService } from '../food-api.service';
 })
 export class FoodFormComponent implements OnInit {
 
-  foodForm = new FormGroup({
-    name: new FormControl(''),
-    brand: new FormControl(''),
-    weight: new FormControl(0),
-    calories: new FormControl(0),
-    sugar: new FormControl(0),
-    fat: new FormControl(0),
-    protiens: new FormControl(0),
-    sel: new FormControl(0),
-    img: new FormControl(''),
-    category: new FormControl(''),
-
-  });
-
-  constructor(private foodApi: FoodAPIService, private fb: FormBuilder) {
-  }
-
-  ngOnInit(): void {
-    this.foodForm = this.fb.group({
+    foodForm = this.fb.group({
       name: [""],
       brand: [""],
       weight: [0],
@@ -41,7 +23,15 @@ export class FoodFormComponent implements OnInit {
       sel: [0],
       img: [""],
       category: [""]
-    })
+    });
+
+
+  constructor(private foodApi: FoodAPIService, private fb: FormBuilder) {
+
+  }
+
+  ngOnInit(): void {
+
   }
 
   submitHandler(){
