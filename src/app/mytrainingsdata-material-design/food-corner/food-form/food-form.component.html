@@ -1,13 +1,18 @@
 <form
-#foodForm="ngForm"
-[formGroup]="foodFormGroup"
 (submit)="submitHandler()"
+[formGroup]="foodForm"
 >
 <div class="example-container">
     <mat-form-field appearance="outline">
       <mat-label>Name</mat-label>
       <mat-hint>Give the product name</mat-hint>
-      <input type="text" name="name" formControlName="name" matInput />
+      <input type="text" name="name" formControlName="name"  matInput />
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Brand</mat-label>
+      <input type="string" name="brand" formControlName="brand"  matInput />
     </mat-form-field>
   </div>
   <div class="example-container">
@@ -52,9 +57,22 @@
       <mat-hint>Give the sel in grams</mat-hint>
     </mat-form-field>
   </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Img (url)</mat-label>
+      <input type="string" name="img" formControlName="img" matInput />
+    </mat-form-field>
+  </div>
+  <div class="example-container">
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <input type="string" name="category" formControlName="category" matInput />
+    </mat-form-field>
+  </div>
+
 
   <div>
-    <button mat-stroked-button>Cancel</button>
     <button mat-stroked-button>Save</button>
   </div>
 </form>
+

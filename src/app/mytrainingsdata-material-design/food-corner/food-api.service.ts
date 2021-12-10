@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import {Food} from './food'
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {  throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,20 @@ export class FoodAPIService {
   constructor(private http: HttpClient) { }
   private endpoint = "https://localhost:7025";
 
+  handleError(error: HttpErrorResponse) {
+    let errorMessage = 'Unknown error!';
+    if (error.error instanceof ErrorEvent) {
+      // Client-side errors
+      errorMessage = `Error: ${error.error.message}`;
+    } else {
+      // Server-side errors
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+  }
+
+
   getAll(): Observable<Food[]> {
     return this.http.get<Food[]>(`${this.endpoint}/api/Food`);
             
@@ -18,6 +34,14 @@ export class FoodAPIService {
 
   getById(Id: string): Observable<Food> {
     return this.http.get<Food>(`${this.endpoint}/api/food/${Id}`);
+  }
+
+  /** POST: add a new food to the database */
+  addFood(food: Food): Observable<Food> {
+    return this.http.post<Food>(`${this.endpoint}/api/Food`, food)
+      .pipe(
+        catchError(this.handleError)
+      );
   }
   
   /*getAll(): Observable<Food[]> {
