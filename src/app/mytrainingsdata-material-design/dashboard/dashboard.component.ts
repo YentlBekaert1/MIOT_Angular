@@ -97,7 +97,7 @@ export class DashboardComponent implements OnInit {
      this.chart = new Chart("canvas", {
       type: 'bar',
       data: {
-          labels: ['Monday', 'Teusday', 'Wendsday', 'Thunderday', 'Friday', 'Saterday', 'Sunday'],
+          labels: ['Monday', 'Teusday', 'Wendsday', 'Thunderday', 'Friday', 'Saturday', 'Sunday'],
           datasets: [{
               label: 'Bike',
               data: [12, 19, 0, 5, 12, 13, 0],

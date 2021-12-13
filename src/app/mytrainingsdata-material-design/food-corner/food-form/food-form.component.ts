@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder} from '@angular/forms';
-import { Food } from '../food';
+import { FormBuilder, Validators} from '@angular/forms';
 import { FoodAPIService } from '../food-api.service';
 
 //https://www.positronx.io/how-to-use-angular-8-httpclient-to-post-formdata/
@@ -13,8 +12,8 @@ import { FoodAPIService } from '../food-api.service';
 export class FoodFormComponent implements OnInit {
 
     foodForm = this.fb.group({
-      name: [""],
-      brand: [""],
+      name: ["", Validators.required],
+      brand: ["", Validators.required],
       weight: [0],
       calories:[0],
       sugar: [0],
@@ -22,7 +21,7 @@ export class FoodFormComponent implements OnInit {
       protiens: [0],
       sel: [0],
       img: [""],
-      category: [""]
+      category: ["", Validators.required]
     });
 
 
@@ -36,9 +35,11 @@ export class FoodFormComponent implements OnInit {
 
   submitHandler(){
     console.log(this.foodForm.value);
+   if(this.foodForm.status == 'VALID'){
     this.foodApi
-      .addFood(this.foodForm.value)
-      .subscribe(data => console.log(data));
+    .addFood(this.foodForm.value)
+    .subscribe(data => console.log(data));
+   }
   }
 
 }
