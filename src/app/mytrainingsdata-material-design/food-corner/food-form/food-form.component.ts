@@ -16,6 +16,7 @@ export class FoodFormComponent implements OnInit {
       brand: ["", Validators.required],
       weight: [0],
       calories:[0],
+      carbohydrate: [0],
       sugar: [0],
       fat:[0],
       protiens: [0],

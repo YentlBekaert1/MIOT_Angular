@@ -15,7 +15,9 @@ import { MytrainingsdataMaterialDesignModule } from './mytrainingsdata-material-
 
 import { HttpClientModule } from '@angular/common/http';
 
-import { SimplebarAngularModule } from 'simplebar-angular'; //custom scrollbar
+import { SimplebarAngularModule } from 'simplebar-angular';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment'; //custom scrollbar
 
 @NgModule({
   declarations: [
@@ -33,6 +35,12 @@ import { SimplebarAngularModule } from 'simplebar-angular'; //custom scrollbar
     LayoutModule,
     HttpClientModule,
     SimplebarAngularModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
 
   ],
   providers: [],

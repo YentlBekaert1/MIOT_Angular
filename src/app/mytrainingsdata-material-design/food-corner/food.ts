@@ -4,6 +4,7 @@ export interface Food {
   brand: string;
   weight: number;
   calories : number;
+  carbohydrate: number;
   sugar: number;
   fat: number;
   protiens: number;

@@ -44,6 +44,7 @@ export class FoodAPIService {
       );
   }
   
+  //om te testen tijden dev
   /*getAll(): Observable<Food[]> {
     return of([
         { name: 'test', brand: "test", category:"", weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001, img:""},

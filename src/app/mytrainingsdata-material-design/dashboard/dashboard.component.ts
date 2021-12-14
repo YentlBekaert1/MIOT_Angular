@@ -89,6 +89,7 @@ export class DashboardComponent implements OnInit {
           console.log('lg')
         }
         if (result.breakpoints[Breakpoints.XLarge]) {
+          this.cols = this.gridByBreakpoint.xl;
           console.log('Xl')
         }
       }
