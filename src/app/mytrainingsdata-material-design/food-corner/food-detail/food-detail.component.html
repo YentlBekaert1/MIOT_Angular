@@ -1,16 +1,24 @@
-<div>
+<div class="page">
     <button (click)="goBack()">go back</button>
-    <ng-container *ngIf="food$ | async as food">
-        <h3>
-          {{ food.name }}
-        </h3>
-        <h4>ISBN - {{ food.Id }}</h4>
-        <section class="food-insights">
-          <p>
-            {{ food.brand }}
-            <i>{{ food.category }}</i>
-          </p>
-          <img [src]="food.img" [alt]="food.name" class="food-cover" />
-        </section>
+    <mat-card>
+      <ng-container *ngIf="food$ | async as food">
+        <div class="card-ont">
+          <div id="left">
+            <img [src]="food.img" [alt]="food.name" class="food-cover" />
+          </div>
+          <div id="right">
+            <h3>
+              {{ food.name }}
+            </h3>
+            <h4>ID - {{ food.Id }}</h4>
+            <section class="food-insights">
+              <p>
+                {{ food.brand }}
+                <i>{{ food.category }}</i>
+              </p>
+            </section>
+          </div>
+        </div>
       </ng-container>
+    </mat-card>
 </div>

@@ -11,7 +11,8 @@ import { catchError } from 'rxjs/operators';
 export class FoodAPIService {
 
   constructor(private http: HttpClient) { }
-  private endpoint = "https://localhost:7025";
+  //private endpoint = "https://localhost:7025"; //local testing
+  private endpoint = "https://sportfood-api.azurewebsites.net"; //online API
 
   handleError(error: HttpErrorResponse) {
     let errorMessage = 'Unknown error!';
@@ -29,7 +30,7 @@ export class FoodAPIService {
 
   getAll(): Observable<Food[]> {
     return this.http.get<Food[]>(`${this.endpoint}/api/Food`);
-            
+
   }
 
   getById(Id: string): Observable<Food> {
@@ -43,13 +44,13 @@ export class FoodAPIService {
         catchError(this.handleError)
       );
   }
-  
+
   //om te testen tijden dev
   /*getAll(): Observable<Food[]> {
     return of([
         { name: 'test', brand: "test", category:"", weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001, img:""},
         { name: 'hello', brand: "hello", category:"",weight: 100, calories: 60, sugar: 40, fat: 10, protiens: 6, sel: 0.001, img:""},
-    
+
     ]);
   }*/
 

@@ -1,0 +1,6 @@
+<div class="usersettingspage">
+  <p>weather works!</p>
+  <a href="https://www.strava.com/oauth/authorize?client_id=33929&response_type=code&redirect_uri=http://localhost:4200/usersettings&approval_prompt=force">connect to strava</a>
+  <p *ngIf="athlete">{{athlete.username}}</p>
+  <div *ngFor="let act of activities$ | async">{{act.name}}</div>
+</div>

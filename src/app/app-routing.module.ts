@@ -6,27 +6,32 @@ import { FoodCornerComponent } from './mytrainingsdata-material-design/food-corn
 import { FoodDetailComponent } from './mytrainingsdata-material-design/food-corner/food-detail/food-detail.component';
 import { PerformancesComponent } from './mytrainingsdata-material-design/performances/performances.component';
 import { WeatherComponent } from './mytrainingsdata-material-design/weather/weather.component';
+import { UserSettingsComponent } from './mytrainingsdata-material-design/user-settings/user-settings.component';
 
 const routes: Routes = [
   {
-        path: "dashboard",
-        component: DashboardComponent
+    path: "dashboard",
+    component: DashboardComponent
   },
   {
-        path: "calendar",
-        component: CalendarComponent
+    path: "calendar",
+    component: CalendarComponent
   },
   {
-        path: "foodcorner",
-        component: FoodCornerComponent
+    path: "foodcorner",
+    component: FoodCornerComponent
   },
   {
-        path: "weather",
-        component: WeatherComponent
+    path: "weather",
+    component: WeatherComponent
   },
   {
-        path: "performances",
-        component: PerformancesComponent
+    path: "performances",
+    component: PerformancesComponent
+  },
+  {
+      path: "usersettings",
+      component: UserSettingsComponent
   },
   {
     path: 'foodcornerdetails/:id',

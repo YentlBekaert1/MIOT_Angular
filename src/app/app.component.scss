@@ -3,6 +3,16 @@
 $font-color: grey;
 $border-color: grey;
 
+.settings_link{
+  color: white;
+  margin-top: 7px;
+  margin-left:80vw;
+  &.active-link{
+    background-color: none;
+    box-shadow: none;
+  }
+}
+
 mat-sidenav{
     width: 260px;
     box-shadow: 0 2px 22px 0 rgb(0 0 0 / 20%), 0 2px 30px 0 rgb(0 0 0 / 35%);

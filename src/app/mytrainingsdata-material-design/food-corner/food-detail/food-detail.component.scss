@@ -1,5 +1,11 @@
-div{
+div.page{
     padding: 2%;
     background-color: #ebecf1;
     min-height: 100vh;
+  }
+  .card-ont{
+    display: flex;
+  }
+  .food-cover{
+    width: 50%;
   }
