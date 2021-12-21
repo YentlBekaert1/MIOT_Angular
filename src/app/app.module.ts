@@ -17,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
-import { environment } from '../environments/environment'; //custom scrollbar
+import { environment } from '../environments/environment';
+import { StoreModule } from '@ngrx/store'; //custom scrollbar
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { environment } from '../environments/environment'; //custom scrollbar
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
+    StoreModule.forRoot({}, {}),
 
   ],
   providers: [],

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { map } from "rxjs/operators";
-import { StravaService } from './strava.service';
+import { StravaService } from '../../strava.service';
 import { Observable, of } from 'rxjs';
-import {Auth, Activities} from './strava_auth'
+import {Auth, Activities} from '../../strava_auth'
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

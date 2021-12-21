@@ -28,6 +28,8 @@
     "@fullcalendar/interaction": "^5.10.1",
     "@fullcalendar/list": "^5.10.1",
     "@fullcalendar/timegrid": "^5.10.1",
+    "@ngrx/effects": "^13.0.2",
+    "@ngrx/store": "^13.0.2",
     "@swimlane/ngx-charts": "^19.1.0",
     "chart.js": "^3.6.2",
     "rxjs": "^7.4.0",
