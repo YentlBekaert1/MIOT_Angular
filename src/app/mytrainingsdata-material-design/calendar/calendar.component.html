@@ -1,4 +1,7 @@
-<div>
-  <full-calendar [options]="calendarOptionsList"  *ngIf="isHandset$ | async"></full-calendar>
-  <full-calendar [options]="calendarOptionsFull"  *ngIf="!(isHandset$ | async)"></full-calendar>
+<div class="calendarpage">
+  <div>
+    <full-calendar [options]="calendarOptionsList"  *ngIf="isHandset$ | async"></full-calendar>
+    <full-calendar [options]="calendarOptionsFull"  *ngIf="!(isHandset$ | async)"></full-calendar>
+  </div>
+  <div *ngFor="let act of activities$">{{act.name}}</div>
 </div>

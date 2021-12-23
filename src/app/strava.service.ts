@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, from, of } from 'rxjs';
 import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-import {  throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import {Auth, Activities} from './strava_auth'
-
+import {Activities} from './strava_auth'
+import { Auth,ReAuth } from './store/stravaauth.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,24 +14,23 @@ export class StravaService {
 
   constructor(private http: HttpClient) { }
 
-  Auth(authtoken : string): Observable<Auth>{
+  Auth(acces_token:string): Observable<Auth>{
     let url = `https://www.strava.com/oauth/token`;
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
       'Accept': 'application/json, text/plain, */*',
-      Authorization: `Bearer ${authtoken}`
+      Authorization: `Bearer ${acces_token}`
     });
     const body = {
             client_id: '33929',
             client_secret: '0c46ee1b55778e235eef2ad1dcdb0610ce311c3a',
-            code: authtoken, //hier moet nog refr token komen
+            code: acces_token, //hier moet nog refr token komen
             grant_type: 'authorization_code'
      };
     return this.http.post<Auth>(url, body, { headers });
   }
 
-
-  reAuth(reftoken : string): Observable<Auth>{
+  reAuth( reftoken: string): Observable<ReAuth>{
     let url = `https://www.strava.com/oauth/token`;
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
@@ -43,10 +40,10 @@ export class StravaService {
     const body = {
             client_id: '33929',
             client_secret: '0c46ee1b55778e235eef2ad1dcdb0610ce311c3a',
-            refresh_token: this.TOKEN, //hier moet nog refr token komen
+            refresh_token: reftoken, //hier moet nog refr token komen
             grant_type: 'refresh_token'
      };
-    return this.http.post<Auth>(url, body, { headers });
+    return this.http.post<ReAuth>(url, body, { headers });
   }
 
   GetActById(accesstoken : any): Observable<Activities[]>{
@@ -55,7 +52,6 @@ export class StravaService {
       "Content-Type": "application/json",
       'Accept': 'application/json, text/plain, */*',
     });
-
     return this.http.get<Activities[]>(url, { headers });
   }
 }

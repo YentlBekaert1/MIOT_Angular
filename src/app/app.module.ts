@@ -18,7 +18,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { SimplebarAngularModule } from 'simplebar-angular';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { StoreModule } from '@ngrx/store'; //custom scrollbar
+import { StoreModule } from '@ngrx/store';
+import { AuthReducer } from './store/stravaauth.reducer';
+import { EffectsModule } from '@ngrx/effects';
+import { AuthEffects } from './store/stravaauth.effects';
 
 @NgModule({
   declarations: [
@@ -42,8 +45,8 @@ import { StoreModule } from '@ngrx/store'; //custom scrollbar
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
     }),
-    StoreModule.forRoot({}, {}),
-
+    StoreModule.forRoot({Authdata: AuthReducer}, {}),
+    //EffectsModule.forRoot([AuthEffects]),
   ],
   providers: [],
   bootstrap: [AppComponent],

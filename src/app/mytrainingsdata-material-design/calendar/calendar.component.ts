@@ -5,6 +5,12 @@ import { BreakpointObserver, Breakpoints } from "@angular/cdk/layout";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 import {Events} from "./events"
+import { StravaService } from 'src/app/strava.service';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/store/app.state';
+import { selectStravaAccessToken, selectStravaAuthLoading } from 'src/app/store/stravaauth.selector';
+import { Activities } from 'src/app/strava_auth';
+
 
 @Component({
   selector: 'app-calendar',
@@ -25,10 +31,22 @@ export class CalendarComponent implements OnInit {
       }
     ];
 
+  activities$! : Activities[];
 
-  constructor(private breakpointObserver: BreakpointObserver) { }
+  constructor(private breakpointObserver: BreakpointObserver,private strava: StravaService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
+    this.store.select(selectStravaAuthLoading).subscribe( result => {
+      if(result == true){
+        this.store.select(selectStravaAccessToken).subscribe(token => {
+          console.log(token);
+          this.strava.GetActById(token).subscribe(data => {
+            this.activities$ = data;
+            console.log(data);
+          });
+        });
+      }
+    });
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver
@@ -41,7 +59,7 @@ export class CalendarComponent implements OnInit {
     select: this.handleDateSelect.bind(this), // bind is important!
     eventClick: this.handleEventClick.bind(this),
     eventsSet: this.handleEvents.bind(this)
-   
+
   };
   calendarOptionsList: CalendarOptions = {
     initialEvents: this.events,
@@ -49,9 +67,9 @@ export class CalendarComponent implements OnInit {
     select: this.handleDateSelect.bind(this), // bind is important!
     eventClick: this.handleEventClick.bind(this),
     eventsSet: this.handleEvents.bind(this)
-   
+
   };
-  
+
   currentEvents: EventApi[] = [
   ];
 
