@@ -55,39 +55,7 @@
     <mat-grid-tile [colspan] = "2" [rowspan] ="6">
       <mat-card class="example-card-large">
         <h2>LAST ACTIVITIES</h2>
-        <div class="table-container"  data-simplebar id="content" data-simplebar-auto-hide="true">
-          <table mat-table [dataSource]="dataSource"  class="mat-elevation-z8">
-            <!-- Date Column -->
-            <ng-container matColumnDef="date">
-              <th mat-header-cell *matHeaderCellDef> Date </th>
-              <td mat-cell *matCellDef="let activities"> {{activities.date}} </td>
-            </ng-container>
-
-            <!-- Name Column -->
-            <ng-container matColumnDef="name">
-              <th mat-header-cell *matHeaderCellDef> Name </th>
-              <td mat-cell *matCellDef="let activities"> {{activities.name}} </td>
-            </ng-container>
-
-            <!-- Time Column -->
-            <ng-container matColumnDef="time">
-              <th mat-header-cell *matHeaderCellDef> Time </th>
-              <td mat-cell *matCellDef="let activities"> {{activities.time}} </td>
-            </ng-container>
-
-            <!-- Distance Column -->
-            <ng-container matColumnDef="distance">
-              <th mat-header-cell *matHeaderCellDef> Distance </th>
-              <td mat-cell *matCellDef="let activities"> {{activities.distance}} </td>
-            </ng-container>
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns sticky: true"></tr>
-            <tr
-            mat-row *matRowDef="let row; columns: displayedColumns;"
-            (click)="clickedRows.add(row)"
-            [class.demo-row-is-clicked]="clickedRows.has(row)"></tr>
-          </table>
-        </div>
+        <app-activitie-table *ngIf="isConnected" [contentAct]="activities$ "></app-activitie-table>
     </mat-card></mat-grid-tile>
   </mat-grid-list>
 </div>

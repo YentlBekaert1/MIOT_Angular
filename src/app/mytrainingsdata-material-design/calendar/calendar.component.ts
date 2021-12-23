@@ -9,7 +9,7 @@ import { StravaService } from 'src/app/strava.service';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/store/app.state';
 import { selectStravaAccessToken, selectStravaAuthLoading } from 'src/app/store/stravaauth.selector';
-import { Activities } from 'src/app/strava_auth';
+import { Activities } from 'src/app/strava_act';
 
 
 @Component({
@@ -36,7 +36,7 @@ export class CalendarComponent implements OnInit {
   constructor(private breakpointObserver: BreakpointObserver,private strava: StravaService, private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.store.select(selectStravaAuthLoading).subscribe( result => {
+    /* this.store.select(selectStravaAuthLoading).subscribe( result => {
       if(result == true){
         this.store.select(selectStravaAccessToken).subscribe(token => {
           console.log(token);
@@ -46,7 +46,7 @@ export class CalendarComponent implements OnInit {
           });
         });
       }
-    });
+    }); */
   }
 
   isHandset$: Observable<boolean> = this.breakpointObserver

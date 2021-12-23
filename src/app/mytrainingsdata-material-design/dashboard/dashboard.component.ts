@@ -1,33 +1,17 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Chart, registerables} from 'chart.js'
-
+import { StravaService } from '../../strava.service';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../store/app.state';
+import { selectStravaAccessToken, selectStravaAuthLoading } from '../../store/stravaauth.selector';
+import { Activities } from '../../strava_act';
 import {
   BreakpointObserver,
   Breakpoints,
   BreakpointState
 } from '@angular/cdk/layout';
+import { Observable } from 'rxjs';
 
-
-export interface activities {
-  name: string;
-  date: string;
-  time: string;
-  distance: string;
-}
-
-const ACTIVITIS_DATA: activities[] = [
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-  {date: '6/15/15, 9:03 AM', name: 'Ochtendrit', time:'1:00:00', distance: '30km'},
-];
 
 @Component({
   selector: 'app-dashboard',
@@ -38,11 +22,6 @@ const ACTIVITIS_DATA: activities[] = [
 
 export class DashboardComponent implements OnInit {
   chart: any = [];
-
-  //for table
-  displayedColumns: string[] = ['date', 'name', 'time', 'distance'];
-  dataSource = ACTIVITIS_DATA;
-  clickedRows = new Set<activities>();
 
   //for grid layout
   cols? : number =4;
@@ -55,8 +34,23 @@ export class DashboardComponent implements OnInit {
     xs: 2
   }
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  activities$! : any;
+  isConnected! : boolean;
+
+  constructor(private breakpointObserver: BreakpointObserver,private strava: StravaService, private store: Store<AppState>) {
     Chart.register(...registerables);
+    this.store.select(selectStravaAuthLoading).subscribe( result => {
+      this.isConnected = result;
+      if(this.isConnected == true){
+        this.store.select(selectStravaAccessToken).subscribe(token => {
+          this.strava.GetActById(token).subscribe(data => {
+            this.activities$ = data;
+            console.log(data);
+          });
+
+        });
+      }
+    });
   }
 
 

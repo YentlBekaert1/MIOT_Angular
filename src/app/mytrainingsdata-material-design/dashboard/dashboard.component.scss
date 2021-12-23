@@ -90,38 +90,5 @@ div.page{
     height: 80%;
 
   }
-  .table-container {
-    height: 80%;
-    max-width: 100%;
-    overflow: auto;
-  }
-  table {
-    width: 100%;
-  }
-}
 
-/* Column Widths */
-.mat-column-number,
-.mat-column-state {
-  max-width: 64px;
-}
-
-.mat-column-created {
-  max-width: 124px;
-}
-
-.mat-row .mat-cell {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
-  cursor: pointer;
-}
-.mat-row:hover .mat-cell {
-  background-color: rgba(0,0,0, 0.1);;
-}
-
-.demo-row-is-clicked {
-  font-weight: bold;
-}
-.mat-table {
-  overflow-y: scroll;
 }

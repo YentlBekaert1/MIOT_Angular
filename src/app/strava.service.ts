@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Observable, from, of } from 'rxjs';
-import { HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-import {Activities} from './strava_auth'
+import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders} from '@angular/common/http';
+import {Activities} from './strava_act'
 import { Auth,ReAuth } from './store/stravaauth.model';
 
 @Injectable({
@@ -46,12 +46,12 @@ export class StravaService {
     return this.http.post<ReAuth>(url, body, { headers });
   }
 
-  GetActById(accesstoken : any): Observable<Activities[]>{
+  GetActById(accesstoken : string){
     let url = `https://www.strava.com/api/v3/athlete/activities?per_page=100&access_token=${accesstoken}`;
     const headers = new HttpHeaders({
       "Content-Type": "application/json",
       'Accept': 'application/json, text/plain, */*',
     });
-    return this.http.get<Activities[]>(url, { headers });
+    return of( this.http.get<Activities[]>(url, { headers }));
   }
 }

@@ -1,8 +1,27 @@
 <div class="usersettingspage">
-  <p>Usersettings works!</p>
-  <a href="https://www.strava.com/oauth/authorize?client_id=33929&response_type=code&redirect_uri=http://localhost:4200/usersettings&response_type=code&scope=activity:read_all">connect to strava</a>
-  <p *ngIf="athlete">{{athlete.username}}</p>
-  <div *ngFor="let act of activities$ | async">{{act.name}}</div>
-  <div>{{(refresh_token$ | async)}}</div>
-  <div>{{(boolToken$ | async)}}</div>
+  <mat-card>
+
+    <div class="container_strava">
+      <div class="left">
+        <h1>Sync your activities</h1>
+        <a href="https://www.strava.com/oauth/authorize?client_id=33929&response_type=code&redirect_uri=http://localhost:4200/usersettings&response_type=code&scope=activity:read_all"><img src="assets/btn_strava_connectwith_orange.png" alt=""></a>
+      </div>
+      <div class="right">
+        <h2>Connected profile</h2>
+        <div *ngIf="athlete" class="connectedAthelete">
+          <div class="connectedAtheleteLeft">
+           <img *ngIf="athlete.profile" src="{{athlete.profile}}" alt="">
+          </div>
+          <div class="connectedAtheleteRight">
+            <h3 *ngIf="athlete"><span>{{athlete.firstname}} </span> <span>{{athlete.lastname}}</span></h3>
+          </div>
+        </div>
+        <div *ngIf="!(athlete)">
+            <h3>Connect to strava to sync your activities.</h3>
+        </div>
+      </div>
+    </div>
+    <!-- <div>{{(refresh_token$ | async)}}</div>
+    <div>{{(boolToken$ | async)}}</div> -->
+  </mat-card>
 </div>

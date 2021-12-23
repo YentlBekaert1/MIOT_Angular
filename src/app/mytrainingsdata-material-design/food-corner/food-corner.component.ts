@@ -18,12 +18,6 @@ export class FoodCornerComponent implements OnInit {
     this.foodData$ = this.foodApi.getAll();
   }
 
- /*constructor(private foodApi: FoodAPIService) {
-    this.foodApi
-      .getAll()
-      .subscribe(foodsFromApi => (this.foodData = foodsFromApi));
-  }*/
-
   ngOnInit(): void {
 
   }

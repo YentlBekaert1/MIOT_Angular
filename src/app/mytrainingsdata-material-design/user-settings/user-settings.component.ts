@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { map } from "rxjs/operators";
 import { StravaService } from '../../strava.service';
 import { Observable, of } from 'rxjs';
-import {Auth, Activities} from '../../strava_auth'
+import { Activities} from '../../strava_act'
 import { ActivatedRoute } from '@angular/router';
 
 import { Store } from '@ngrx/store';
@@ -20,7 +20,7 @@ export class UserSettingsComponent implements OnInit {
 
   activities$! : Observable<Activities[]>;
   athlete: any;
-  
+
   refresh_token$= this.store.select(selectStravaRefreshToken);
   boolToken!: boolean;
   boolToken$ = this.store.select(selectStravaAuthLoading);
@@ -35,19 +35,24 @@ export class UserSettingsComponent implements OnInit {
       console.log(state);
     });
       //first get params out of URL
-      this.route.queryParams.subscribe(params => {
-        if(params.code){
-          //get refreshtoken
-            this.strava.Auth(params.code).subscribe(authdata => {
-            this.store.dispatch(AuthActions.ReceivedRefreshToken({refresh_token:authdata.refresh_token}));
-            this.store.dispatch(AuthActions.ReceivedAccessToken({access_token:authdata.access_token}));
-            this.athlete = authdata.athlete;
-            this.store.dispatch(AuthActions.GotCode());
-            //try refreshtoken to get new access token
-            //this.activities$ = this.strava.GetActById(authdata.access_token);
+      this.store.select(selectStravaAuthLoading).subscribe( bool =>{
+        if(bool == false){
+          this.route.queryParams.subscribe(params => {
+            if(params.code){
+              //get refreshtoken
+                this.strava.Auth(params.code).subscribe(authdata => {
+                this.store.dispatch(AuthActions.ReceivedRefreshToken({refresh_token:authdata.refresh_token}));
+                this.store.dispatch(AuthActions.ReceivedAccessToken({access_token:authdata.access_token}));
+                this.athlete = authdata.athlete;
+                console.log(this.athlete);
+                this.store.dispatch(AuthActions.GotCode());
+                //try refreshtoken to get new access token
+                //this.activities$ = this.strava.GetActById(authdata.access_token);
+              });
+            }
           });
         }
-      });
+      })
     }
 
     /*

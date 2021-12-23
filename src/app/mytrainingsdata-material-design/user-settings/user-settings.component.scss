@@ -3,3 +3,42 @@ div.usersettingspage{
   background-color: #ebecf1;
   min-height: 100vh;
 }
+mat-card{
+
+}
+.container_strava{
+   display: flex;
+   margin: 2% 5%;
+   max-height: 30vh;
+   .left{
+    width:30%;
+    border-right: 1px solid grey;
+    h1{
+      margin-bottom: 5%;
+    }
+
+    a{
+      display: block;
+      img{
+        border-radius: 5px;
+        max-width: 20vw;
+      }
+    }
+   }
+   .right{
+      width:40%;
+      padding-left: 5%;
+      .connectedAthelete{
+        display: flex;
+        .connectedAtheleteLeft{
+          width: 50%;
+          img{
+            width: 50%;
+          }
+        }
+        .connectedAtheleteRight{
+          width: 50%;
+        }
+      }
+   }
+}
