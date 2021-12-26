@@ -20,7 +20,7 @@ export class FoodDetailComponent implements OnInit {
       switchMap(params => this.foodApi.getById(params?.id)) //switchmap zorgt ervoor dat je switcht van de ene observable naar de andere
     );
   }
-
+  
   goBack(): void {
   this.location.back();
   }

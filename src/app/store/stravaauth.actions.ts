@@ -1,6 +1,4 @@
 import { createAction, props } from '@ngrx/store';
-import { Observable } from 'rxjs';
-import { Auth, ReAuth } from './stravaauth.model';
 
 export const ReceivedRefreshToken = createAction(
   '[auth] Received RefreshToken',
